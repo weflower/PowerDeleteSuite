@@ -1,5 +1,5 @@
 var pd = {
-  version: '1.4.8',
+  version: '1.5.0',
   bookmarkver: '1.4',
   init : function() {
     pd.checks.versions();
