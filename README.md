@@ -1,4 +1,6 @@
-# Power Delete Suite
+*NB: This fork of PDS for Reddit uses a 5-second timer to stay within the new rate limits. It was hastily edited from another fork, but it works. However it will take a LONG time on very old accounts.*
+
+# Power Delete Suite with 5 second timeout
 
  Why use the Power Delete Suite instead of the other mass reddit deletion scripts?
 
