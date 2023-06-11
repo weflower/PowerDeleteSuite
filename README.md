@@ -31,9 +31,9 @@
  
  [![Install PowerDeleteSuite](https://i.imgur.com/c0s8Mm2.png)](https://codepen.io/pkolyvas/full/QWJbEOM)
  
-**NB: There seems to be a little bit of a bug here where when you load the bookmarklet, you need to do it twice. I don't know if it's part of the original PDS or some change I made. Will try to track it down if I have time.
+*NB: There seems to be a little bit of a bug here where when you load the bookmarklet, you need to do it twice. I don't know if it's part of the original PDS or some change I made. Will try to track it down if I have time.*
 
-TLDR: Once you're on your overview page, click the PDS bookmark one more time.**
+**TLDR: Once you're on your overview page, click the PDS bookmark one more time.**
  
 ## Bugs / Issues?
  
