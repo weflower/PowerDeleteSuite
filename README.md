@@ -1,4 +1,4 @@
-*NB: This fork of PDS for Reddit uses a 5-second timer to stay within the new rate limits. It was hastily edited from another fork, but it works. However it will take a LONG time on very old accounts.*
+*NB: This fork of PDS for Reddit uses a 5-second timer to stay within the new rate limits. It was hastily edited from @leeola's [fork](https://github.com/leeola/PowerDeleteSuite). @leeola deserves all credit for the timeout function. I simply completed the rest of the "install it as a bookmark" workflow. However it will take a LONG time on very old accounts.*
 
 # Power Delete Suite with 5 second timeout
 
