@@ -467,37 +467,39 @@ var pd = {
       }
     },
     delete: function (item) {
-      if (pd.performActions) {
-        $.ajax({
-          url: '/api/del',
-          method: 'post',
-          data: {
-            id: item.data.name,
-            executed: 'deleted',
-            uh: pd.config.uh,
-            renderstyle: 'html'
-          }
-        }).then(function() {
+        if (pd.performActions) {
+            setTimeout(function() {
+                $.ajax({
+                url: '/api/del',
+                method: 'post',
+                data: {
+                    id: item.data.name,
+                    executed: 'deleted',
+                    uh: pd.config.uh,
+                    renderstyle: 'html'
+                }
+                }).then(function() {
+                pd.task.items[0].pdDeleted = true;
+                pd.actions.children.handleSingle();
+                }, function () {
+                pd.task.info.errors++;
+                if (confirm('Error deleting '+(item.kind == 't3' ? 'post':'comment')+', would you like to retry?')) {
+                    pd.actions.children.handleSingle();
+                } else {
+                    pd.actions.children.finishItem();
+                    pd.actions.children.handleGroup();
+                }
+                });
+            }, 5100);
+        } else {
           pd.task.items[0].pdDeleted = true;
+          pd.task.after = pd.task.items[0].data.name;
           pd.actions.children.handleSingle();
-        }, function () {
-          pd.task.info.errors++;
-          if (confirm('Error deleting '+(item.kind == 't3' ? 'post':'comment')+', would you like to retry?')) {
-            pd.actions.children.handleSingle();
-          } else {
-            pd.actions.children.finishItem();
-            pd.actions.children.handleGroup();
-          }
-        });
-      } else {
-        pd.task.items[0].pdDeleted = true;
-        pd.task.after = pd.task.items[0].data.name;
-        pd.actions.children.handleSingle();
-      }
+        }
     },
     edit: function (item) {
       if (pd.performActions) {
-	setTimeout(function() {
+   setTimeout(function() {
         $.ajax({
           url: '/api/editusertext',
           method: 'post',
@@ -519,7 +521,7 @@ var pd = {
           }
           pd.actions.children.handleSingle();
         });
-	}, 5100);
+   }, 5100);
       } else {
         pd.task.items[0].pdEdited = true;
         pd.actions.children.handleSingle();
@@ -596,11 +598,11 @@ var pd = {
   },
   error: function() {
     var reset = confirm("We ran into an error. Why not tell /u/j0be what you were doing to break it?\r\n\r\nWould you like to restart the script?");
-	window.pd_processing = false;
-	if (reset) {
-		pd.init();
-	}
-	return true;
+   window.pd_processing = false;
+   if (reset) {
+      pd.init();
+   }
+   return true;
   },
   performActions: true,
   debugging: false
